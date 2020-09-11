@@ -1,0 +1,24 @@
+#应用名 用于服务分组
+spring:
+  application:
+    name: EurakaServer
+
+#是否将自己注册到其他Eureka Server,默认为true 需要
+eureka:
+  client:
+    register-with-eureka: true
+    #是否从eureka server获取注册信息， 需要
+    fetch-registry: true
+    #设置服务注册中心的URL，用于client和server端交流
+    #此节点应向其他节点发起请求
+    serviceUrl:
+      defaultZone: http://euk2.com:7902/eureka/
+  instance:
+    #用于查找主机
+    hostname: euk1.com
+server:
+  port: 7901
+management:
+  endpoint:
+    shutdown:
+      enabled: true

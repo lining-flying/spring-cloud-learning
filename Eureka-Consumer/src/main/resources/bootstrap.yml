@@ -1,0 +1,60 @@
+server:
+  port: 80
+
+eureka:
+  instance:
+    #心跳发送时间间隔 默认30s
+    lease-renewal-interval-in-seconds: 30
+    #服务过期时间 默认90s
+    lease-expiration-duration-in-seconds: 90
+  client:
+    register-with-eureka: true
+    #是否从eureka server获取注册信息， 需要
+    fetch-registry: true
+    #默认从Euraka服务端拉取服务列表的时间间隔
+    registry-fetch-interval-seconds: 30
+    service-url:
+      defaultZone: http://euk1.com:7900/eureka/
+
+spring:
+  application:
+    name: eureka-consumer-hello
+#  zipkin:
+#    base-url: http://localhost:9411/
+#    #采样比例1
+#  sleuth:
+#    sampler:
+#      rate: 1
+  boot:
+    admin:
+      client:
+        url: http://localhost:9090
+  cloud:
+    config:
+      # 通过eureka去找
+      discovery:
+        enabled: true
+        service-id: config-server
+      profile: dev
+      label: master
+      #直接URL方式查找配置中心
+#      uri: http://localhost:9999/
+
+
+feign:
+  client:
+    config:
+      euraka-provider-hello:
+        request-interceptors: com.lining.learning.eureka.consumer.interceptors.MyBasicAuthRequestInterceptor
+  hystrix:
+    enabled: true
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: '*'
+  endpoint:
+    health:
+      show-details: always
+
