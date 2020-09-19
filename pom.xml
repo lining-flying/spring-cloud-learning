@@ -10,6 +10,7 @@
         <module>Zuul-Server</module>
         <module>Admin-Server</module>
         <module>Spring-Cloud-Config</module>
+        <module>Spring-Security</module>
     </modules>
 	<parent>
 		<groupId>org.springframework.boot</groupId>

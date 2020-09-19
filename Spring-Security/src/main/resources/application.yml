@@ -1,0 +1,15 @@
+spring:
+  application:
+    name: spring-security
+  datasource:
+    username: root
+    password: 123456
+    url: jdbc:mysql://192.168.32.55/msb?useUnicode=true&characterEncoding=UTF-8&serverTimezone=Asia/Shanghai
+#  security:
+#    user:
+#      name: root
+#      password: root
+
+server:
+  port: 80
+

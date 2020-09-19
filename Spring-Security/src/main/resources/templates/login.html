@@ -1,0 +1,14 @@
+<html>
+<head>
+    <meta charset="UTF-8" />
+</head>
+<body>
+登录
+<form action="/login" method="post">
+    <input type="text" name="username" /><br>
+    <input type="password" name="password" /><br>
+    <input th:name="${_csrf.parameterName}" th:value="${_csrf.token}" />
+    <button type="submit">登录</button>
+</form>
+</body>
+</html>
